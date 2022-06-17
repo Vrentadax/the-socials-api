@@ -1,5 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 
+/* This is creating a new schema for the User model. */
 const UserSchema = new Schema(
     {
         username: {
@@ -25,6 +26,8 @@ const UserSchema = new Schema(
     }
 );
 
+/* This is creating a virtual property for the User model. This virtual property is called friendCount
+and it is a getter. The getter is returning the length of the friends array. */
 UserSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 })
